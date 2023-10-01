@@ -1,0 +1,45 @@
+apiVersion: v1
+kind: Service
+metadata:
+ name: nginx-headless
+ labels:
+  app: nginx-sts
+spec:
+ selector:
+  app: nginx-sts
+ clusterIP: None
+ ports:
+ - port: 80
+   name: web
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+ name: student33-sts
+spec:
+ replicas: 3
+ serviceName: nginx-headless
+ selector:
+  matchLabels:
+   app: nginx-sts
+ template:
+  metadata:
+   labels:
+    app: nginx-sts
+  spec:
+   containers:
+   - name: nginx
+     image: nginx
+     volumeMounts:
+     - name: student33-pvc
+       mountPath: /data
+ volumeClaimTemplates:
+ - metadata:
+    name: student33-pvc
+   spec:
+    storageClassName: student33-sc
+    accessModes:
+    - ReadWriteOnce
+    resources:
+     requests:
+      storage: 1Gi

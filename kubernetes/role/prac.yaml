@@ -1,0 +1,22 @@
+metadata:
+   name: 
+   namespace: 
+---
+apiVersion: rbac.authorization.io/v1
+kind: Role
+metadata: 
+   name: 
+   namespace: 
+rules:
+   apiGroups: [""]
+   verbs: ["get", "list", "create"]
+   resources: ["services", "pods"]
+
+---
+subjects: 
+   - kind: User
+     name: student33
+roleRef:
+     kind: Role
+     name: test-role
+     apiGroup: rbac.authorization.io

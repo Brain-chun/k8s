@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata: 
+ name: test-pvc
+spec: 
+ storageClassName: student33-sc
+ volumeName: student33-pv2 #pv의 이름과 맞춰줘야한다.
+ accessModes:
+   - ReadWriteOnce
+ resources: 
+  requests: 
+    storage: 1Gi #스토리지 용량도 맞워줘야함

@@ -1,0 +1,14 @@
+metadata: 
+   name: 
+   labels: 
+      app: ---
+spec: 
+   #type: NodePort
+   ports: 
+      - port: ---
+        targetPort: --
+        #nodePort: ----
+   selector: 
+      app: ---
+---
+kubectl expose deploy [deploy name] --name=svc --type=NodePort,ClusterIP --port=8080 -target-port=80

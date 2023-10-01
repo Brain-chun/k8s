@@ -1,0 +1,9 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+    name: test-role
+    namespace: student33
+rules:
+  - apiGroups: [""]
+    verbs: ["get", "list", "delete"]
+    resources: ["services", "pods"]

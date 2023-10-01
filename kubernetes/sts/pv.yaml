@@ -1,0 +1,65 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+ name: student33-pv0
+spec:
+ capacity:
+  storage: 1Gi
+ accessModes:
+ - ReadWriteOnce
+ persistentVolumeReclaimPolicy: Retain
+ storageClassName: student33-sc
+ local:
+  path: /home/student33/test
+ nodeAffinity:
+  required:
+   nodeSelectorTerms:
+   - matchExpressions:
+     - key: kubernetes.io/hostname
+       operator: In
+       values:
+       - grad3-worker-1
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+ name: student33-pv1
+spec:
+ capacity:
+  storage: 1Gi
+ accessModes:
+ - ReadWriteOnce
+ persistentVolumeReclaimPolicy: Retain
+ storageClassName: student33-sc
+ local:
+  path: /home/student33/test
+ nodeAffinity:
+  required:
+   nodeSelectorTerms:
+   - matchExpressions:
+     - key: kubernetes.io/hostname
+       operator: In
+       values:
+       - grad3-worker-1
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+ name: student33-pv2
+spec:
+ capacity:
+  storage: 1Gi
+ accessModes:
+ - ReadWriteOnce
+ persistentVolumeReclaimPolicy: Retain
+ storageClassName: student33-sc
+ local:
+  path: /home/student33/test
+ nodeAffinity:
+  required:
+   nodeSelectorTerms:
+   - matchExpressions:
+     - key: kubernetes.io/hostname
+       operator: In
+       values:
+       - grad3-worker-1

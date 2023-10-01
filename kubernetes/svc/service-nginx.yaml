@@ -1,0 +1,15 @@
+#service-nginx.yaml
+apiVersion: v1
+kind: Service
+metadata:
+        name: nginx-service
+        labels:
+                app: webui
+spec:
+        ports:
+                - port: 8080
+                  protocol: TCP
+                  targetPort: 80
+        selector:
+                app: webui
+

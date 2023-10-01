@@ -1,0 +1,29 @@
+apiVersion: batch/v1
+kind: 
+metadata:
+
+spec: 
+   completions: 
+   parallelism: 
+   backoffLimit: 
+   activeDeadlineSeconds: 
+   ttlSecondsAfterFinished: 
+   template: 
+      spec: 
+         restartPolicy: Never OnFailure
+         containers: 
+            - name: 
+              image: 
+              command: []
+---
+spec: 
+   schedule: "* * * * *"
+   jobTemplate: 
+      spec: 
+         template: 
+            spec: 
+              restartPolicy: 
+              containers: 
+                 - name: 
+                   image: 
+                   command: []

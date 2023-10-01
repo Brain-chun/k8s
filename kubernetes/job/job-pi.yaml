@@ -1,0 +1,17 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: job-sub
+spec:
+  completions: 5 #최종 완료 개수
+  parallelism: 2 #병렬 처리하는 개수
+  backoffLimit: 4 #실패 시 다시 실행하는 최대 횟수
+  activeDeadlineSeconds: 100 #실행하는데 걸리는 최대 시간
+  ttlSecondsAfterFinished: 100 #실행이 완료된 후 Pod 제거 시간 
+  template:
+    spec:
+      restartPolicy: Never #Pod 재생성 #OnFailure : Pod 재실행
+      containers:
+        - name: pi
+          image: perl
+          command: ["perl", "-Mbignum=bpi", "-wle", "print bpi(2)"]

@@ -1,0 +1,17 @@
+apiVersion: batch/v1
+kind: Job
+metadata: 
+ name: hello-world
+spec:
+ backoffLimit: 4
+ template:
+   spec:
+     restartPolicy: Never # pod가 실패하면 새로운 Pod로 재생성
+                    #OnFailure : 실패 시 기존 Pod를 재실행
+     containers:
+       - name: helloworld
+         image: busybox
+         command: ["echo", "helloworld"]
+      #  - echo
+      #  - helloworld 
+      #  위와 같은 형태도 가능
